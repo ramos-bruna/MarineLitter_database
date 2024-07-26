@@ -99,8 +99,7 @@ CREATE TABLE WeatherData (
 	survey_id VARCHAR REFERENCES SurveyDetails(survey_id),
     beach_id VARCHAR REFERENCES Beach(beach_id),
     time TIME,
-	survey_date DATE, -- survey_date relate to SurveyDetails
-    wind_dir VARCHAR,
+	wind_dir VARCHAR,
     wind_int DECIMAL,
     precipitation DECIMAL,
     tide DECIMAL,
@@ -112,7 +111,6 @@ CREATE TABLE WeatherData (
 -- Table: BeachLog
 CREATE TABLE BeachLog (
     log_id SERIAL PRIMARY KEY,
-    survey_date DATE, -- survey_date relate to SurveyDetails
     survey_id VARCHAR REFERENCES SurveyDetails(survey_id),
 	beach_id VARCHAR REFERENCES Beach(beach_id),
     erosion_marks BOOLEAN,
