@@ -5,25 +5,25 @@ CREATE TABLE Beach (
     country VARCHAR NOT NULL,
     state VARCHAR NOT NULL,
     city VARCHAR NOT NULL,
-    urbanization VARCHAR NOT NULL
+    urbanization VARCHAR NOT NULL,
+	lat_begin DECIMAL,
+    lon_begin DECIMAL,
+    lat_end DECIMAL,
+    lon_end DECIMAL
 );
 
 -- Table: SurveyDetails
 CREATE TABLE SurveyDetails (
     survey_id VARCHAR PRIMARY KEY,
     survey_date DATE NOT NULL,
-    beach_id VARCHAR REFERENCES Beach(beach_id),
-    lat_begin DECIMAL,
-    lon_begin DECIMAL,
-    lat_end DECIMAL,
-    lon_end DECIMAL,
-    transect VARCHAR
+    beach_id VARCHAR REFERENCES Beach(beach_id)
 );
 
 -- Table: LitterData
 CREATE TABLE LitterData (
     litter_id SERIAL PRIMARY KEY,
     survey_id VARCHAR REFERENCES SurveyDetails(survey_id),
+	transect VARCHAR,
     beach_id VARCHAR REFERENCES Beach(beach_id),
     area_m2 DECIMAL,
 	weight_g DECIMAL,
@@ -96,9 +96,10 @@ CREATE TABLE LitterData (
 -- Table: WeatherData
 CREATE TABLE WeatherData (
     weather_id SERIAL PRIMARY KEY,
+	survey_id VARCHAR REFERENCES SurveyDetails(survey_id),
     beach_id VARCHAR REFERENCES Beach(beach_id),
-    survey_date DATE, -- survey_date relate to SurveyDetails
     time TIME,
+	survey_date DATE, -- survey_date relate to SurveyDetails
     wind_dir VARCHAR,
     wind_int DECIMAL,
     precipitation DECIMAL,
@@ -112,7 +113,8 @@ CREATE TABLE WeatherData (
 CREATE TABLE BeachLog (
     log_id SERIAL PRIMARY KEY,
     survey_date DATE, -- survey_date relate to SurveyDetails
-    beach_id VARCHAR REFERENCES Beach(beach_id),
+    survey_id VARCHAR REFERENCES SurveyDetails(survey_id),
+	beach_id VARCHAR REFERENCES Beach(beach_id),
     erosion_marks BOOLEAN,
     wrack BOOLEAN,
     odors BOOLEAN,
