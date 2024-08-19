@@ -1,6 +1,6 @@
---- Which beach had the fishing items such as lures, traps, pots and fishing nets observed during surveys?
+--- Which beach had the fishing items such as lures, traps, pots, and fishing nets observed during surveys?
 
---- total items numer
+--- total items number
 --- PL17 = Fishing gear (lures, traps & pots)
 --- PL20 = Fishing net
 
@@ -18,7 +18,7 @@ ORDER BY
 LIMIT 3;
 
 
---- items per saquare meter
+--- items per square meter
 
 WITH FishingItems AS (
     SELECT
