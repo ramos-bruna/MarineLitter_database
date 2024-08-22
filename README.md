@@ -1,5 +1,5 @@
 # MarineLitter_database
-Relational database for Marine Litter data, connected with weather and social data. 
+Relational database for Marine Litter data, connected with weather and beach use data. 
 
 This database is designed for postgree SQL, using pgadmin.
 
