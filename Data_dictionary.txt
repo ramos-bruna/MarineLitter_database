@@ -1,0 +1,142 @@
+Data Dictionary – ML_DB
+
+Table: Beach
+| Column Name   | Data Type | Description                                        
+|---------------|-----------|----------------------------------------------------|
+| beach_id      | VARCHAR   | Unique identifier for the beach (Primary Key).   
+| name          | VARCHAR   | Name of the beach.                                
+| country       | VARCHAR   | Country where the beach is located.               
+| state         | VARCHAR   | State where the beach is located.                 
+| city          | VARCHAR   | City where the beach is located.                  
+| urbanization  | VARCHAR   | Description of the urbanization level (e.g., urban, rural). 
+| lat_begin     | DECIMAL   | Latitude of the beginning point of the beach.     
+| lon_begin     | DECIMAL   | Longitude of the beginning point of the beach.    
+| lat_end       | DECIMAL   | Latitude of the end point of the beach.           
+| lon_end       | DECIMAL   | Longitude of the end point of the beach.          
+
+Table: SurveyDetails
+| Column Name   | Data Type | Description                                        
+|---------------|-----------|----------------------------------------------------|
+| survey_id     | VARCHAR   | Unique identifier for the survey (Primary Key).   
+| survey_date   | DATE      | Date when the survey was conducted.               
+| beach_id      | VARCHAR   | Identifier for the beach where the survey was conducted (Foreign Key). 
+
+Table: LitterData
+| Column Name   | Data Type | Description                                       
+|---------------|-----------|----------------------------------------------------|
+| litter_id     | SERIAL    | Unique identifier for litter data (Primary Key).  
+| survey_id     | VARCHAR   | Identifier for the related survey (Foreign Key).  
+| transect      | VARCHAR   | Identifier for the transect sampled during the survey. 
+| beach_id      | VARCHAR   | Identifier for the beach related to the litter data (Foreign Key). 
+| area_m2       | DECIMAL   | Area surveyed in square meters.                    
+| weight_g      | DECIMAL   | Weight of the litter in grams.                     
+| CL01          | INT       | Count of  Clothing, shoes, hats & towels.     
+| CL05          | INT       | Count of Carpet & furnishing.                         
+| CL06          | INT       | Count of Other cloth (including rags).                         
+| FP02          | INT       | Count of Cups & food packs.                         
+| FP03          | INT       | Count of Foam buoys.                        
+| FP04          | INT       | Count of Foam (insulation & packaging).                         
+| FP05          | INT       | Count of Other (fragments).                         
+| GC01          | INT       | Count of Construction material (brick, cement, pipes).                         
+| GC02          | INT       | Count of Bottles & jars.                         
+| GC07          | INT       | Count of Glass or ceramic fragments.                         
+| GC08          | INT       | Count of Other (fragments).                         
+| ME01          | INT       | Count of Tableware (plates, cups & cutlery).                         
+| ME02          | INT       | Count of Bottle caps, lids & pull tabs.                         
+| ME03          | INT       | Count of Aluminium drink cans.                         
+| ME06          | INT       | Count of Foil wrappers.                         
+| ME07          | INT       | Count of Fishing related (sinkers, lures, hooks, traps & pots).                         
+| ME08          | INT       | Count of Fragments.                         
+| ME09          | INT       | Count of Wire, wire mesh & barbed wire.                         
+| OT01          | INT       | Count of Paraffin or wax.                         
+| OT02          | INT       | Count of Sanitary (nappies, cotton buds, tampon applicators, toothbrushes).                         
+| OT04          | INT       | Count of Batteries (torch type).                         
+| OT05_1        | INT       | Count of Burned items.            
+| OT05_2        | INT       | Count of Coastal protection bags.            
+| OT05_3        | INT       | Count of Tar balls.            
+| PC01          | INT       | Count of Paper (including newspapers & magazines).
+| PC03          | INT       | Count of Cups, food trays, food wrappers, cigarette packs, drink containers.
+| PC05          | INT       | Count of Other (fragments).                         
+| PL01          | INT       | Count of Bottle caps & lids.                         
+| PL02          | INT       | Count of Bottles < 2 L.                         
+| PL02_1        | INT       | Count of litter type PL02 (version 1).            
+| PL03          | INT       | Count of Bottles, drums, jerrycans & buckets > 2 L.                         
+| PL04          | INT       | Count of Knives, forks, spoons, straws, stirrers, (cutlery).                        
+| PL06          | INT       | Count of Food containers (fast food, cups, lunch boxes & similar).                         
+| PL07          | INT       | Count of Plastic bags (opaque & clear).                        
+| PL08          | INT       | Count of Toys & party poppers.                         
+| PL09          | INT       | Count of Gloves.                         
+| PL10          | INT       | Count of Cigarette lighters.                         
+| PL11          | INT       | Count of Cigarettes, butts & filters.                         
+| PL12          | INT       | Count of Syringes.                         
+| PL15          | INT       | Count of Mesh bags (vegetable, oyster nets & mussel bags).                         
+| PL17          | INT       | Count of Fishing gear (lures, traps & pots).                         
+| PL18          | INT       | Count of Monofilament line.                         
+| PL19          | INT       | Count of Rope.                         
+| PL20          | INT       | Count of Fishing net.                         
+| PL21          | INT       | Count of Strapping.                         
+| PL22          | INT       | Count of Fibreglass fragments.                         
+| PL24          | INT       | Count of Other (specify).                         
+| PL24_1        | INT       | Count of COVID-19 related items.            
+| PL24_2        | INT       | Count of Cleaning product packaging.            
+| PL24_3        | INT       | Count of Hard fragment.            
+| PL24_4        | INT       | Count of Soft fragment.            
+| PL24_6        | INT       | Count of Pen.            
+| PL24_7        | INT       | Count of Construction items.        
+| PL25        | INT       | Count of International items.
+| RB01          | INT       | Count of Balloons, balls & toys.                         
+| RB02          | INT       | Count of Footwear (flip-flops).                         
+| RB04          | INT       | Count of Tyres.                         
+| RB06          | INT       | Count of Rubber bands.                         
+| RB07          | INT       | Count of Condoms.                         
+| RB08          | INT       | Count of Other (fragments).                         
+| WD01          | INT       | Count of Corks.                         
+| WD03          | INT       | Count of Ice-cream sticks, chip forks, chopsticks & toothpicks.                         
+| WD04          | INT       | Count of Processed timber and pallet crates.                         
+| WD05          | INT       | Count of Matches & fireworks.                         
+
+Table: WeatherData
+| Column Name   | Data Type | Description                                        
+|---------------|-----------|----------------------------------------------------|
+| weather_id    | SERIAL    | Unique identifier for weather data (Primary Key). 
+| survey_id     | VARCHAR   | Identifier for the related survey (Foreign Key).  
+| beach_id      | VARCHAR   | Identifier for the beach related to the weather data (Foreign Key). 
+| time          | TIME      | Time of the weather observation.                   
+| wind_dir      | VARCHAR   | Direction of the wind.                             
+| wind_int      | DECIMAL   | Intensity of the wind.                            
+| precipitation  | DECIMAL   | Amount of precipitation recorded.                  
+| tide          | DECIMAL   | Tide level recorded.                             
+| wave_height    | DECIMAL   | Height of the waves recorded.                     
+| wave_dir      | VARCHAR   | Direction of the waves.                           
+| wave_period    | DECIMAL   | Period of the waves recorded.                     
+
+Table: BeachLog
+| Column Name                | Data Type | Description                                        
+|----------------------------|-----------|----------------------------------------------------|
+| log_id                     | SERIAL    | Unique identifier for beach log entries (Primary Key). 
+| survey_id                  | VARCHAR   | Identifier for the related survey (Foreign Key).  
+| beach_id                   | VARCHAR   | Identifier for the beach related to the log entry (Foreign Key). 
+| erosion_marks              | BOOLEAN   | Indicates presence of erosion marks (TRUE/FALSE).  
+| wrack                      | BOOLEAN   | Indicates presence of beach wrack (TRUE/FALSE).    
+| odors                      | BOOLEAN   | Indicates presence of odors (TRUE/FALSE).          
+| noise                      | BOOLEAN   | Indicates presence of noise (TRUE/FALSE).          
+| geological_features         | BOOLEAN   | Indicates presence of geological features (TRUE/FALSE). 
+| water_quality              | DECIMAL   | Water quality rating or measurement.               
+| beach_litter               | BOOLEAN   | Indicates presence of beach litter (TRUE/FALSE).   
+| exotic_species             | BOOLEAN   | Indicates presence of exotic species (TRUE/FALSE). 
+| recreation_services         | BOOLEAN   | Indicates availability of recreation services (TRUE/FALSE). 
+| access                     | BOOLEAN   | Indicates beach access (TRUE/FALSE).               
+| toilets_showers            | BOOLEAN   | Indicates presence of toilets/showers (TRUE/FALSE).
+| food_service               | BOOLEAN   | Indicates availability of food services (TRUE/FALSE). 
+| cleaning_services           | BOOLEAN   | Indicates availability of cleaning services (TRUE/FALSE). 
+| historical_assets          | BOOLEAN   | Indicates presence of historical assets (TRUE/FALSE). 
+| policing                   | BOOLEAN   | Indicates presence of policing (TRUE/FALSE).       
+| user_security              | BOOLEAN   | Indicates presence of user security measures (TRUE/FALSE). 
+| lifeguards                 | BOOLEAN   | Indicates presence of lifeguards (TRUE/FALSE).     
+| environmental_information   | BOOLEAN   | Indicates availability of environmental information (TRUE/FALSE). 
+| mpa                        | BOOLEAN   | Indicates if the beach is within a Marine Protected Area (TRUE/FALSE). 
+| zoning                     | BOOLEAN   | Indicates if there are zoning regulations (TRUE/FALSE). 
+| carrying_capacity          | BOOLEAN   | Indicates if there is a carrying capacity plan (TRUE/FALSE). 
+| monitoring                 | BOOLEAN   | Indicates if there is monitoring in place (TRUE/FALSE). 
+| scientific_literature      | BOOLEAN   | Indicates if scientific literature is available (TRUE/FALSE). 
+
