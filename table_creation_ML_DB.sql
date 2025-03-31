@@ -119,6 +119,7 @@ CREATE TABLE BeachLog (
     noise BOOLEAN,
     geological_features BOOLEAN,
     water_quality DECIMAL,
+    sewage BOOLEAN,	
     beach_litter BOOLEAN,
     exotic_species BOOLEAN,
     recreation_services BOOLEAN,
