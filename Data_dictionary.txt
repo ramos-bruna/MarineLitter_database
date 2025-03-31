@@ -1,4 +1,4 @@
-Data Dictionary – ML_DB
+Data Dictionary â€“ ML_DB
 
 Table: Beach
 | Column Name   | Data Type | Description                                        
@@ -95,17 +95,18 @@ Table: LitterData
 | WD04          | INT       | Count of Processed timber and pallet crates.                         
 | WD05          | INT       | Count of Matches & fireworks.                         
 
-Table: WeatherData
+Table: Meteo_oceano
 | Column Name   | Data Type | Description                                        
 |---------------|-----------|----------------------------------------------------|
-| weather_id    | SERIAL    | Unique identifier for weather data (Primary Key). 
+| meteo_id    | SERIAL    | Unique identifier for weather data (Primary Key). 
 | survey_id     | VARCHAR   | Identifier for the related survey (Foreign Key).  
 | beach_id      | VARCHAR   | Identifier for the beach related to the weather data (Foreign Key). 
 | time          | TIME      | Time of the weather observation.                   
 | wind_dir      | VARCHAR   | Direction of the wind.                             
-| wind_int      | DECIMAL   | Intensity of the wind.                            
+| wind_int      | DECIMAL   | Speed of the wind.                            
 | precipitation  | DECIMAL   | Amount of precipitation recorded.                  
-| tide          | DECIMAL   | Tide level recorded.                             
+| tide          | DECIMAL   | Tide height level recorded.
+| tide_class    | VARCHAR  | Tide class for the beach (micro, meso or macro). 
 | wave_height    | DECIMAL   | Height of the waves recorded.                     
 | wave_dir      | VARCHAR   | Direction of the waves.                           
 | wave_period    | DECIMAL   | Period of the waves recorded.                     
@@ -121,7 +122,8 @@ Table: BeachLog
 | odors                      | BOOLEAN   | Indicates presence of odors (TRUE/FALSE).          
 | noise                      | BOOLEAN   | Indicates presence of noise (TRUE/FALSE).          
 | geological_features         | BOOLEAN   | Indicates presence of geological features (TRUE/FALSE). 
-| water_quality              | DECIMAL   | Water quality rating or measurement.               
+| water_quality              | DECIMAL   | Water quality rating or measurement.   
+| sewage                     | BOOLEAN   | Indicates presence of sewage (TRUE/FALSE).
 | beach_litter               | BOOLEAN   | Indicates presence of beach litter (TRUE/FALSE).   
 | exotic_species             | BOOLEAN   | Indicates presence of exotic species (TRUE/FALSE). 
 | recreation_services         | BOOLEAN   | Indicates availability of recreation services (TRUE/FALSE). 
