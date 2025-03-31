@@ -94,8 +94,8 @@ CREATE TABLE LitterData (
 );
 
 -- Table: WeatherData
-CREATE TABLE WeatherData (
-    weather_id SERIAL PRIMARY KEY,
+CREATE TABLE meteo_oceano (
+    meteo_id SERIAL PRIMARY KEY,
 	survey_id VARCHAR REFERENCES SurveyDetails(survey_id),
     beach_id VARCHAR REFERENCES Beach(beach_id),
     time TIME,
